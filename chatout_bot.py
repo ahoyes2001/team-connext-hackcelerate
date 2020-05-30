@@ -13,9 +13,9 @@ import requests as re
 import json
 
 #first URL is the main page of the application
-URL = ""
+URL = "http://d2e3836d6a4d.ngrok.io/"
 #second URL is the api link for the applicatino
-URL2 = ""
+URL2 = "http://d2e3836d6a4d.ngrok.io/api"
 headers = {'content-type': 'application/json'}
 UPDATER = Updater(token='', use_context=True)
 DISPATCHER = UPDATER.dispatcher
@@ -111,9 +111,6 @@ def getConfirmation(update, context):
 	if confirm == "Yep":
 		try:
 			data = json.dumps(ORDER_DICT)
-			data = json.loads(data)
-			data = str(data).replace("'",'"') #gwaan aga
-			print (data)
 			request = re.post(URL, data=data, headers=headers)
 			query.edit_message_text(text="Thanks for choosing our store. We'll contact you again on the delivery date")
 			ORDER_DICT.clear()
