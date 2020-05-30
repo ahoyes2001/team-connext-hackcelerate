@@ -13,11 +13,11 @@ import requests as re
 import json
 
 #first URL is the main page of the application
-URL = "http://d2e3836d6a4d.ngrok.io/"
+URL = ""
 #second URL is the api link for the applicatino
-URL2 = "http://d2e3836d6a4d.ngrok.io/api"
+URL2 = ""
 headers = {'content-type': 'application/json'}
-UPDATER = Updater(token='961559315:AAFyDi_RamZGQ3Tggy_8LahUSZAjbXWQcWQ', use_context=True)
+UPDATER = Updater(token='', use_context=True)
 DISPATCHER = UPDATER.dispatcher
 
 PRODUCT, QUANTITY, NAME, ADDRESS, PHONE, DELIVERY, CONFIRMATION, CHANGE_MENU = range(8)
