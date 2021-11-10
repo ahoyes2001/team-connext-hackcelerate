@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <ul class="responsive-table">
+      <h2><a href="/?view=pending">Pending Orders</a> | <a href="/?view=fulfilled">Fulfilled Orders</a> | <a href="/?view=cancelled">Cancelled Orders</a></h2>
+      <li class="table-header">
+        <div class="col col-1">Order Id</div>
+        <div class="col col-2">Customer Name</div>
+        <div class="col col-3">Contact</div>
+        <div class="col col-4">Address</div>
+        <div class="col col-5">Order</div>
+        <div class="col col-6">Quantity</div>
+        <div class="col col-7">Amount Due</div>
+        <div class="col col-8">Date Created</div>
+        <div class="col col-8">Delivery Date</div>
+      </li>
+      {% for order in orders %}
+      <li class="table-row">
+        <div class="col col-1" data-label="Order Id">{{ order.id }}</div>
+        <div class="col col-2" data-label="Customer Name">{{ order.name }}</div>
+        <div class="col col-3" data-label="Contact">{{ order.contact }}</div>
+        <div class="col col-4" data-label="Address">{{ order.address }}</div>
+        <div class="col col-5" data-label="Order">{{ order.order }}</div>
+        <div class="col col-6" data-label="Quantity">{{ order.quantity }}</div>
+        <div class="col col-7" data-label="Amount Due">{{ order.amount_due }}</div>
+        <div class="col col-8" data-label="Date">{{ order.date_created }}</div>
+        <div class="col col-8" data-label="Delivery Date">{{ order.delivery_date }}</div>
+        <div class="col col-8" data-label="options">
+          <!--<a href='#'>Update</a>
+          <br> -->
+          <a href='/accept/{{ order.id }}'>Fulfil</a>
+          <br>
+          <a href='/cancel/{{ order.id }}'>Cancel</a></div>
+        
+
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
